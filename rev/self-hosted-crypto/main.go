@@ -17,5 +17,5 @@ func main() {
 	}
 
 	encrypted := cipher(dat)
-	err = os.WriteFile("output", encrypted, 0644)
+	err = os.WriteFile("encrypted", encrypted, 0644)
 }

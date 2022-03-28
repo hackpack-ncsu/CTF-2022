@@ -1,0 +1,11 @@
+{
+  "name": "Self-hosted Crypto",
+  "category": "reverse",
+  "description": "I wrote my own crypto library for our Fancy New App, and decided to release the encryption as a standalone library. Mind testing it out for me?",
+  "points" : 500,
+  "flag": "flag{A_b4d_Id34!1!}",
+  "hints": ["Native code can be debugged, regardless of the language.", "https://github.com/felberj/gotools"],
+  "author": "jeallis2",
+  "build_cmd": "go build main.go"
+}
+
