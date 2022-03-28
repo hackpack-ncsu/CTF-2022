@@ -1,0 +1,11 @@
+{
+  "name": "Human-Friendly Title of Your Challenge",
+  "category": "(pwn|reverse|web|misc)",
+  "description": "An intriguing but probably very cheesy and implausible story setting up the challenge and giving the contestant any necessary information (like how to connect to the challenge).  Uploaded files (e.g., binaries, etc.) are handled manually through the ctfd admin web interface.",
+  "points" : 1337,
+  "flag": "flag{FOLLOW_THE_STANDARD_FLAG_FORMAT!}",
+  "hints": ["Hints?  HINTS?!  We don't need no steenkin' H I N T S!!!", "More seriously, these may or may not end up being used/shown; discuss with the organizers if you feel the hints are vital to the user experience."],
+  "author": "YOUR_UNITY_ID",
+  "build_cmd": "make && sudo make install # this is for user reference---there is not automation involved"
+}
+
