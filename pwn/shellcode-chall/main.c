@@ -9,9 +9,8 @@ enum Mode
 	Unprivileged = 0
 };
 
-enum Mode mode;
 
-int evaluate_statement(char *statement)
+int evaluate_statement(char *statement, enum Mode mode)
 {
 	char *p;
 	if (!strcmp(statement, "ls"))
@@ -40,6 +39,7 @@ int evaluate_statement(char *statement)
 
 int main(int argc, char *argv[])
 {
+	enum Mode mode;
 	char eval_buff[50];
 	char mode_buff[10];
 
@@ -70,8 +70,8 @@ int main(int argc, char *argv[])
 	while (err == 0)
 	{
 		printf("$ ");
-		scanf("%50[^\n]", eval_buff);
-		err = evaluate_statement(eval_buff);
+		scanf("%[^\n]", eval_buff);
+		err = evaluate_statement(eval_buff, mode);
 		fflush(stdin);
 		memset(eval_buff, 0, 50);
 	}
