@@ -23,7 +23,7 @@ int evaluate_statement(char *statement, enum Mode mode)
 		system("pwd");
 		return 0;
 	}
-	else if((p = strstr(statement, "cat")) != NULL && mode == Privileged)
+	else if((p = strstr(statement, "cat")) != NULL && mode != Unprivileged)
 	{
 		char *filename = p + 4;
 		printf("%s\n", filename);
@@ -33,15 +33,18 @@ int evaluate_statement(char *statement, enum Mode mode)
 
 		free(full_command);
 	}
-	printf("Invalid command '%s', or attempt to execute a privileged command '%s' without permission.\n", statement, statement);
-	return 1;
+	else 
+	{
+		printf("Invalid command '%s', or attempt to execute a privileged command '%s' without permission.\n", statement, statement);
+		return 1;
+	}
+	
 }
 
 int main(int argc, char *argv[])
 {
 	enum Mode mode;
-	char eval_buff[50];
-	char mode_buff[10];
+	char eval_buff[25];
 
 	// Print intro and begin event loop
 	printf("PACKShell v0.0.0.1.2.5l6.3\n");
@@ -49,7 +52,7 @@ int main(int argc, char *argv[])
 	// read user args and set the mode
 	if (argc < 2)
 	{
-		printf("Usage: packshell <MODE> (1 for interactive, 0 for single-mode");
+		printf("Usage: packshell <MODE> (1 for PRIVILEGED, 0 for UNPRIVILEGED\n");
 		exit(1);
 	}
 	int user_provided_mode = atoi(argv[1]);
@@ -67,12 +70,14 @@ int main(int argc, char *argv[])
 	}
 
 	int err = 0;
-	while (err == 0)
+	while (1)
 	{
 		printf("$ ");
 		scanf("%[^\n]", eval_buff);
 		err = evaluate_statement(eval_buff, mode);
+		getc(stdin);
 		fflush(stdin);
-		memset(eval_buff, 0, 50);
+		fflush(stdout);
+		memset(eval_buff, 0, 25);
 	}
 }

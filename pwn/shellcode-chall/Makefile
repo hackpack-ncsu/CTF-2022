@@ -1,8 +1,7 @@
+all: main debug
+
 main: main.o
-	gcc main.o -o packshell -fno-stack-protector
+	gcc main.c -o packshell -fno-stack-protector -z execstack -Wl,-z,norelro
 
-debug: main.o
-	gcc main.o -o packshell -fno-stack-protector -g
-
-main_obj: main.c
-	gcc -c main.c
+debug: main.c
+	gcc main.c -o packshell_DEBUG -fno-stack-protector -z execstack -g -Wl,-z,norelro
