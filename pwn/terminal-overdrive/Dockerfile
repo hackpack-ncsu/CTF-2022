@@ -2,15 +2,15 @@
 FROM debian:buster AS builder
 
 # need basic GNU toolchain
-RUN apt update && apt install -y gcc make git
+RUN apt update && apt install -y gcc make
 
 # copy in source/Makefile
 WORKDIR /build
-COPY source/main.c /build
+COPY chal.c /build
 COPY Makefile /build
 
 # build the challenge executable
-RUN make
+RUN make chal
 
 # multistage build: actually deploy a buster-slim image with artifacts copied from our build environment
 FROM debian:buster-slim
@@ -18,11 +18,11 @@ FROM debian:buster-slim
 # make a normal user to run the challenge as (no running as root!)
 RUN groupadd ctfuser && useradd -g ctfuser --create-home ctfuser
 
-# copy in the `chal` executable and flag
+# copy in the `chal` executable
 WORKDIR /ctf
-COPY --from=builder /build/packshell /ctf
-COPY source/flag.txt /ctf
+COPY --from=builder /build/chal /ctf
+COPY flag.txt /ctf
 
 # run it as our normal user
 USER ctfuser
-ENTRYPOINT ["/ctf/packshell"]
+ENTRYPOINT ["/ctf/chal", "0"]

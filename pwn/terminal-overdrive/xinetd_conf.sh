@@ -1,12 +1,12 @@
 #!/bin/sh
 
 # This should match the IMAGE_BASE variable in your Makefile
-IMAGE_BASE="ctf2021-xinetd-pty-challenge"
+IMAGE_BASE="ctf2021-terminal-overdrive"
 
 # This is the port that xinetd will listen on/forward to spawned containers
 # (i.e., this is the port that you will have Traefik configured to send ingress
 # traffic to from the edge/firewall).
-OUTER_PORT=41714
+OUTER_PORT=41715
 
 # Modify the rest with care; probably only if you need to adjust 
 # the xinetd limits or the docker-run parameters (server_args).
@@ -31,7 +31,7 @@ service ${IMAGE_BASE}
 	instances = UNLIMITED
 	port = ${OUTER_PORT}
 	server = /usr/bin/docker
-	server_args = run -i --init --rm --pids-limit=32 --cpus=0.5 --memory=100M --read-only --log-driver none --tmpfs /tmp:rw,exec,nosuid,size=16M ${IMAGE_BASE}:${VERSION}
+	server_args = run -i --init --rm --pids-limit=4 --cpus=0.5 --memory=100M --read-only --log-driver none --tmpfs /tmp:rw,noexec,nosuid,size=16M ${IMAGE_BASE}:${VERSION}
 }
 EOF
 

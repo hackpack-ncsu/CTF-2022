@@ -8,17 +8,21 @@ IMAGE_BASE = ctf2021-terminal-overdrive
 SRC_SUBTREE = pwn/terminal-overdrive
 
 # For maximal consistency, you can put your flag string in here.
-# This example uses it to generate a trivial flag.txt file
+# This example passes it into the Docker build via a BUILD ARG
+# and into the C program build using a -DDEFINE macro.
 # Of course, also feel free to rip this out and just hardcode
 # the flag in your source or a text file, depending on your needs.
 FLAG = flag{cH3ck_uR_bUFF3rz!1!}
 
 # And leave the rest of this alone...
 #------------------------------------
-IMAGE_NAME = $(IMAGE_BASE):latest
+
+IMAGE_TAG = `git rev-parse --verify --short=0 HEAD:${SRC_SUBTREE}`
+IMAGE_NAME = $(IMAGE_BASE):$(IMAGE_TAG)
+
 
 docker:
-	docker build . -t $(IMAGE_NAME)
+	docker build -t $(IMAGE_NAME) .
 	docker tag $(IMAGE_NAME) $(IMAGE_BASE):latest
 
 install: 
@@ -26,11 +30,11 @@ install:
 	systemctl restart xinetd
 
 test: chal
-	echo "$(CURDIR)/packshell"
-	nc --verbose --exec "$(CURDIR)/packshell" --listen
+	echo "$(CURDIR)/chal"
+	ncat --verbose --exec "$(CURDIR)/chal" --listen
 
-chal: main.c
-	gcc source/main.c -o packshell -fno-stack-protector -z execstack -Wl,-z,norelro
+chal: chal.c
+	gcc -o $@ "-DFLAG_STRING=\"$(FLAG)\"" $^ -fno-stack-protector -z execstack -no-pie
 
 clean:
 	rm -rf chal	
