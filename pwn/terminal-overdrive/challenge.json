@@ -1,0 +1,11 @@
+{
+  "name": "Terminal Overdrive",
+  "category": "pwn",
+  "description": "I wrote a shell just for NC State students. It's not done yet, though...",
+  "points" : 500,
+  "flag": "flag{cH3ck_uR_bUFF3rz!1!}",
+  "hints": [],
+  "author": "jeallis2",
+  "build_cmd": "make && sudo make install"
+}
+
