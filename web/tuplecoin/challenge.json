@@ -1,0 +1,11 @@
+{
+  "name": "TupleCoin",
+  "category": "web|crypto",
+  "description": "TupleCoin is launching their eponymous cryptocurrency today, and their flamboyant and capricous CEO is challenging you to bring home a bug bounty.  Can you crack the crypto?!",
+  "points" : 200,
+  "flag": "flag{th3r3_r_2_k1nds_0f_crypt0_n_7h3_w0r1d___th15_15nt_1_0f_th3m}",
+  "hints": [],
+  "author": "jjuecks",
+  "build_cmd": "make docker && make install # assuming the user can build/run docker containers"
+}
+
