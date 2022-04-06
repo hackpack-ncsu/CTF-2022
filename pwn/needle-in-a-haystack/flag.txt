@@ -1,0 +1,1 @@
+flag{linus_was_right_bool_is_wack}

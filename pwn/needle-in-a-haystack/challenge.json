@@ -1,0 +1,11 @@
+{
+  "name": "Needle in a Haystack",
+  "category": "pwn",
+  "description": "Let's see if you can find the super secret password! Oh you can? Let's see if you can use it ;)",
+  "points" : 500,
+  "flag": "flag{linus_was_right_bool_is_wack}",
+  "hints": [],
+  "author": "awbeggs",
+  "build_cmd": "make && sudo make install"
+}
+
