@@ -16,4 +16,4 @@ docker:
 
 install:
 	docker rm --force ${IMAGE_BASE}
-	docker run -d --name=${IMAGE_BASE} --restart=always -p ${HOST}:${PORT}:80 ${IMAGE_NAME}
+	docker run -d --name=${IMAGE_BASE} --restart=always -p ${HOST}:${PORT}:5000 ${IMAGE_NAME}
