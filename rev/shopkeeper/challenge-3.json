@@ -1,0 +1,11 @@
+{
+  "name": "Shopkeeper 3",
+  "category": "rev",
+  "description": "Wow! You've veaten the shopkeeper, but how about the gambler?",
+  "points" : 500,
+  "flag": "flag{w0w_you_can_pr3d1ct_th3_future?!?}",
+  "hints": [],
+  "author": "Abraxus",
+  "build_cmd": "make && sudo make install"
+}
+

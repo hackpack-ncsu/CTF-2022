@@ -1,0 +1,11 @@
+{
+  "name": "Shopkeeper 2",
+  "category": "rev",
+  "description": "Can you trick the super smart shopkeeper?",
+  "points" : 500,
+  "flag": "flag{g00d_job_y0u_b3at_7he_sh0pk3eper}",
+  "hints": [],
+  "author": "Abraxus",
+  "build_cmd": "make && sudo make install"
+}
+

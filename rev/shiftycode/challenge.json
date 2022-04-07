@@ -1,0 +1,10 @@
+{
+  "name": "Shiftycode",
+  "category": "rev",
+  "description": "I wrote a really cool VM but for some reason the code keeps shifting when its run, help me figure out what they programmed for it!",
+  "points" : 500,
+  "flag": "flag{my_sh1fti35_453_n1fty}",
+  "hints": [],
+  "author": "Abraxus"
+}
+
