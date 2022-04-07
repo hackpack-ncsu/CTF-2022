@@ -1,5 +1,5 @@
 # Change to "ctf2021-${YOUR_CHALLENGE_NAME}"
-IMAGE_BASE = ctf2021-terminal-overdrive
+IMAGE_BASE = ctf2022-terminal-overdrive
 
 # Change to the relative path to your challenge's subfolder of the CTF-2021 git repo.
 # This is done so that your Docker builds are always tagged with the git subtree hash
