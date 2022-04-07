@@ -1,0 +1,11 @@
+{
+  "name": "Cerebrum Boggled",
+  "category": "pwn",
+  "description": "My BF skill are a bit rusty! I got pwn'd last year, so I wrote it in a more secure language this time around :)",
+  "points" : 500,
+  "flag": "flag{now_that_was_a_mind_f_ck}",
+  "hints": [],
+  "author": "awbeggs",
+  "build_cmd": "make && sudo make install"
+}
+
