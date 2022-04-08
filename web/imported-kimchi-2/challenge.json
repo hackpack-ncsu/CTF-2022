@@ -1,0 +1,10 @@
+{
+    "name": "Imported Kimchi",
+    "category": "web",
+    "description": "I've been eating so much Korean food that I think it's starting to affect my code... Anyway, I made this awesome web server where you can upload images. Check it out!",
+    "points": 100,
+    "flag": "hackpack{y_u_br34k_th3_p1ckl35_1_m4d3}",
+    "hints": [],
+    "author": "halterer",
+    "build_cmd": "make docker && make install"
+}

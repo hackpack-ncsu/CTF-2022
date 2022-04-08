@@ -1,0 +1,17 @@
+{% extends "bootstrap/base.html" %} {% block content %}
+<div class="container">
+    <h1>Korean Food Gallery</h1>
+    <h2>Upload your images here!</h2>
+    <a href="{{ url_for('upload') }}" class="btn btn-primary m-3">Upload</a>
+    <h2>Image Gallery</h2>
+    <div>
+        Go to "/images/&lt;filename&gt; to view your images! <br>
+        I uploaded a few images myself, check them out: <br>
+    </div>
+    <ul>
+        <li>bibimbap.jpg</li>
+        <li>galbi.jpg</li>
+        <li>pickled_kimchi.jpg</li>
+    </ul>
+</div>
+{% endblock %}
