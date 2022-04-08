@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # This should match the IMAGE_BASE variable in your Makefile
-IMAGE_BASE="ctf2022-Pai3"
+IMAGE_BASE="ctf2022-paiaiai"
 
 # This is the port that xinetd will listen on/forward to spawned containers
 # (i.e., this is the port that you will have Traefik configured to send ingress
