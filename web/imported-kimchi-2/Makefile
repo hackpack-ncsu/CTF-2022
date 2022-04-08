@@ -1,9 +1,8 @@
-IMAGE_BASE = ctf2022-imported-kimchi
-SRC_SUBTREE = web/imported-kimchi
-FLAG = flag{y_u_br34k_th3_p1ckl35_1_m4d3}
-
+IMAGE_BASE = ctf2022-imported-kimchi-2
+SRC_SUBTREE = web/imported-kimchi-2
+FLAG = flag{4nd_h3r3_1_w45_th1nk1ng_v1n3g4r_w45_s4n1t4ry} 
 HOST = 0.0.0.0
-PORT = 8101
+PORT = 8102
 
 IMAGE_TAG = `git rev-parse --verify --short=0 HEAD:${SRC_SUBTREE}`
 IMAGE_NAME = ${IMAGE_BASE}:${IMAGE_TAG}
