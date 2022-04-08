@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/env python3
 #
 # Polymero
 #
@@ -97,8 +97,8 @@ class Paillier_then_RSA:
         self.N = P * Q
 
         # RSA private key
-        F = (P - 1) * (Q - 1) * self.N
-        self.D = inverse(self.E, F)
+        F = (P - 1) * (Q - 1)
+        self.D = inverse(self.E, F * self.N)
 
         # Paillier public key
         self.G = randbelow(self.N * self.N)
@@ -184,7 +184,7 @@ while STAGE_1:
         else:
             print("|\n|  ERROR -- Unknown command.")
 
-    except (KeyboardInterrupt, EOFError):
+    except KeyboardInterrupt:
         print("\n|\n|\n|  Cya ~\n|")
         break
 
@@ -195,7 +195,7 @@ while STAGE_1:
 if STAGE_2:
 
     PTR = Paillier_then_RSA(DOMAIN)
-    print("|\n|  STAGE 2 :: Paillier-then-RSA\n|   N: {}\n|   G: {}\n|".format(RTP.N, RTP.G))
+    print("|\n|  STAGE 2 :: Paillier-then-RSA\n|   N: {}\n|   G: {}\n|".format(PTR.N, PTR.G))
 
     PTR_PWD = int.from_bytes(os.urandom(32).hex().encode(), 'big')
     print("|\n|  PTR(Password): {}".format(PTR.encrypt(PTR_PWD)))
@@ -236,9 +236,10 @@ while STAGE_2:
         else:
             print("|\n|  ERROR -- Unknown command.")
 
-    except (KeyboardInterrupt, EOFError):
+    except KeyboardInterrupt:
         print("\n|\n|\n|  Cya ~\n|")
         break
 
     except:
         print("|\n|  ERROR -- Something went wrong.")
+
