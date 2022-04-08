@@ -239,7 +239,9 @@ int main()
 
     char command[50];
     strcpy(command, "base64 chal");
-    
+
+    system(command);
+
     char * first_flag = "flag{b4s364_1s_s0_c3wl_wh0_kn3w_you_c0u1d_do_th15}";
 
     if (print_flag_1())
