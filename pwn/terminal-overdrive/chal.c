@@ -72,11 +72,19 @@ int main(int argc, char *argv[])
 	int err = 0;
 	while (1)
 	{
+		// help >:(
 		printf("$ ");
 		fflush(stdout);
-		scanf("%[^\n]", eval_buff);
+		if (scanf("%[^\n]", eval_buff) != 1)
+		{
+			getc(stdin);
+			exit(-1);
+		}
 		err = evaluate_statement(eval_buff, mode);
-		getc(stdin);
+		if (getc(stdin) == EOF)
+		{
+			exit(-1);
+		}
 		fflush(stdin);
 		fflush(stdout);
 		memset(eval_buff, 0, 25);
