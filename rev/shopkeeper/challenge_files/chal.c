@@ -11,12 +11,14 @@ bool Level1()
 {
     // return true;
     fprintf(stdout, "Welcome to my Shop!\nWhat would you like to do?\n");
+    fflush(stdout);
 
     bool run = true;
     int owned_items[3] = {0, 0, 0}; 
 
     while (run) {
         fprintf(stdout, "1) Buy\n2) Sell\n3) View Your Inventory\n4) Leave Shop\n");
+        fflush(stdout);
 
         char c = getchar();
 
@@ -28,6 +30,7 @@ bool Level1()
             {
                 fprintf(stdout, "What would you like to buy?\n");
                 fprintf(stdout, "1) An Apple (2 coins)\n2) An Orange (6 coins)\n3) The Key to the Flag (100 coins)\n");
+                fflush(stdout);
 
                 int value = getchar() - 0x31;
                 getchar();
@@ -36,11 +39,13 @@ bool Level1()
                 int values[3] = {2, 6, 100};
                 if (value >= 0 && value < 3) {
                     fprintf(stdout, "How many %s would you like to buy?\n", items[value]);
+                    fflush(stdout);
                     int qty = getchar() - 0x30;
                     getchar();
 
                     if (coins < values[value] * qty) {
                         fprintf(stdout, "You don't have enough money :(\n");
+    fflush(stdout);
                     }
                     else {
                         coins -= (values[value] * qty);
@@ -49,6 +54,7 @@ bool Level1()
                 }
                 else {
                     fprintf(stdout, "%c is not a valid option\n", value + 0x31);
+    fflush(stdout);
                 }
 
                 break;
@@ -57,6 +63,7 @@ bool Level1()
             {
                 fprintf(stdout, "What would you like to sell?\n");
                 fprintf(stdout, "1) An Apple (1 coins)\n2) An Orange (3 coins)\n");
+    fflush(stdout);
 
                 int value = getchar() - 0x31;
                 getchar();
@@ -65,11 +72,13 @@ bool Level1()
                 int values[2] = {1, 3};
                 if (value >= 0 && value < 2) {
                     fprintf(stdout, "How many %s would you like to sell?\n", items[value]);
+    fflush(stdout);
                     int qty = getchar() - 0x30;
                     getchar();
 
                     if (owned_items[value] < qty) {
                         fprintf(stdout, "You don't have enough %s :(\n", items[value]);
+    fflush(stdout);
                     }
                     else {
                         coins += (values[value] * qty);
@@ -78,6 +87,7 @@ bool Level1()
                 }
                 else {
                     fprintf(stdout, "%c is not a valid option\n", value + 0x31);
+    fflush(stdout);
                 }
                 break;
             }
@@ -87,9 +97,11 @@ bool Level1()
                 fprintf(stdout, "You have %d Apples!\n", owned_items[0]);
                 fprintf(stdout, "You have %d Oranges!\n", owned_items[1]);
                 fprintf(stdout, "You have %d Keys to the Flag!\n", owned_items[2]);
+    fflush(stdout);
 
                 if (owned_items[2] > 0) {
                     fprintf(stdout, "Congrats!! You have the key!\n");
+    fflush(stdout);
                     return true;
                 }
 
@@ -97,10 +109,15 @@ bool Level1()
             }
             case '4':
                 fprintf(stdout, "Goodbye then!\n");
+    fflush(stdout);
                 run = false;
+                break;
+            case -1:
+                exit(1);
                 break;
             default:
                 fprintf(stdout, "Do you really think this would be so easy to hack?\n");
+    fflush(stdout);
         }
     }
 
@@ -111,6 +128,7 @@ bool Level2() {
 
     if (coins != 0x13) {
         fprintf(stdout, "You didn't start all over again!\n");
+    fflush(stdout);
         return false;
     }
 
@@ -121,23 +139,28 @@ bool Level2() {
 
     while (coins != 0x37) {
         fprintf(stdout, "How much money do you want to bet?\n");
+    fflush(stdout);
         char bet = getchar() - 0x30;
 
         if (bet > coins || bet < 0) {
             fprintf(stdout, "Don't try cheating!\n");
+    fflush(stdout);
             return false;
         }
 
         fprintf(stdout, "What is the value? (0-9)\n");
+    fflush(stdout);
         char guess = getchar() - 0x30;
 
         int rand_val = rand() % 10;
         if (rand_val == guess) {
             fprintf(stdout, "Correct!\n");
+    fflush(stdout);
             coins += bet;
         }
         else {
             fprintf(stdout, "Correct Value was: %d\n", rand_val);
+    fflush(stdout);
         }
 
     }
@@ -152,6 +175,7 @@ bool print_flag_1() {
         if (fp == NULL)
         {
             printf("Cannot open file \n");
+    fflush(stdout);
             exit(0);
         }
 
@@ -166,6 +190,7 @@ bool print_flag_1() {
         fclose(fp);
 
         printf("\n");
+    fflush(stdout);
 
         return true;
     }
@@ -179,6 +204,7 @@ bool print_flag_2() {
         if (fp == NULL)
         {
             printf("Cannot open file \n");
+    fflush(stdout);
             exit(0);
         }
 
@@ -193,6 +219,7 @@ bool print_flag_2() {
         fclose(fp);
 
         printf("\n");
+    fflush(stdout);
 
         return true;
     }
