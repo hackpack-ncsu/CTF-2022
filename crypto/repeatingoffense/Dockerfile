@@ -14,7 +14,7 @@ COPY repeatingoffense.py /ctf
 COPY entry.sh /ctf
 RUN chmod +x /ctf/entry.sh
 RUN chmod +x /ctf/repeatingoffense.py
-user ctfuser
+USER ctfuser
 RUN pip3 install pycryptodome
 
 ENTRYPOINT ["/ctf/entry.sh"]
