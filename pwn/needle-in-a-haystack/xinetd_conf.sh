@@ -6,7 +6,7 @@ IMAGE_BASE="ctf2022-needle-in-a-haystack"
 # This is the port that xinetd will listen on/forward to spawned containers
 # (i.e., this is the port that you will have Traefik configured to send ingress
 # traffic to from the edge/firewall).
-OUTER_PORT=41716
+OUTER_PORT=41718
 
 # Modify the rest with care; probably only if you need to adjust 
 # the xinetd limits or the docker-run parameters (server_args).
