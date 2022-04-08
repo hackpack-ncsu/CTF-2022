@@ -1,6 +1,6 @@
 IMAGE_BASE = ctf2022-imported-kimchi
 SRC_SUBTREE = web/imported-kimchi
-FLAG = hackpack{y_u_br34k_th3_p1ckl35_1_m4d3}
+FLAG = flag{y_u_br34k_th3_p1ckl35_1_m4d3}
 
 HOST = 127.0.0.1
 PORT = 8101
