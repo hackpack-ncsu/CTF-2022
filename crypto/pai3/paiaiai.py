@@ -100,7 +100,7 @@ while True:
         else:
             print("|\n|  Trai again ~ \n|")
         
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         print("\n|\n|  Bai ~ \n|")
         break
         
