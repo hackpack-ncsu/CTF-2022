@@ -1,0 +1,11 @@
+{
+  "name": "Shopkeeper 1",
+  "category": "rev",
+  "description": "When I connect I get some weird text before the program starts running, I wonder what could be hidden in it.",
+  "points" : 500,
+  "flag": "flag{b4s364_1s_s0_c3wl_wh0_kn3w_you_c0u1d_do_th15}",
+  "hints": [],
+  "author": "Abraxus",
+  "build_cmd": "make && sudo make install"
+}
+
