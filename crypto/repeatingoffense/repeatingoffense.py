@@ -184,7 +184,7 @@ while STAGE_1:
         else:
             print("|\n|  ERROR -- Unknown command.")
 
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         print("\n|\n|\n|  Cya ~\n|")
         break
 
@@ -236,7 +236,7 @@ while STAGE_2:
         else:
             print("|\n|  ERROR -- Unknown command.")
 
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         print("\n|\n|\n|  Cya ~\n|")
         break
 
