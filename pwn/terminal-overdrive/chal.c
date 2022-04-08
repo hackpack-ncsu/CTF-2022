@@ -45,9 +45,9 @@ int main(int argc, char *argv[])
 {
 	enum Mode mode;
 	char eval_buff[25];
-
+	bzero(eval_buff, 25);
 	// Print intro and begin event loop
-	printf("PACKShell v0.0.0.1.2.5l6.3\n");
+	printf("PACKShell v0.0.0.1.2.5l6.3\n\n");
 
 	// read user args and set the mode
 	if (argc < 2)
@@ -73,6 +73,7 @@ int main(int argc, char *argv[])
 	while (1)
 	{
 		printf("$ ");
+		fflush(stdout);
 		scanf("%[^\n]", eval_buff);
 		err = evaluate_statement(eval_buff, mode);
 		getc(stdin);

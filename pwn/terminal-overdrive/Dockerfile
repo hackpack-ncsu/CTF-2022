@@ -2,7 +2,7 @@
 FROM debian:buster AS builder
 
 # need basic GNU toolchain
-RUN apt update && apt install -y gcc make
+RUN apt update && apt install -y xinetd gcc make
 
 # copy in source/Makefile
 WORKDIR /build
