@@ -11,14 +11,9 @@ app.secret_key = 'sup3r s3cr3t k3y'
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
-images = set()
-images.add('bibimbap.jpg')
-images.add('galbi.jpg')
-images.add('pickled_kimchi.jpg')
-
 @app.route('/')
 def index():
-    return render_template("index.html", images=images)
+    return render_template("index.html")
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
