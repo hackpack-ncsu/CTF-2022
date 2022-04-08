@@ -140,7 +140,15 @@ bool Level2() {
     while (coins != 0x37) {
         fprintf(stdout, "How much money do you want to bet?\n");
     fflush(stdout);
-        char bet = getchar() - 0x30;
+        char bet = getchar();
+
+        if (bet < 0) {
+            fprintf(stdout, "Don't try cheating!\n");
+    fflush(stdout);
+            return false;
+        }
+
+        bet = bet - 0x30;
 
         if (bet > coins || bet < 0) {
             fprintf(stdout, "Don't try cheating!\n");
