@@ -10,7 +10,8 @@ COPY . /app
 WORKDIR /app
 
 # add file write access for images
-RUN chown -R ctfuser:ctfuser /app
+RUN chmod -R 0555 /app
+RUN chown -R ctfuser:ctfuser /app/images
 RUN chmod 755 /app/images
 
 # install requirements
