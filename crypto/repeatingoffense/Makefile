@@ -1,11 +1,11 @@
 # Change to "ctf2021-${YOUR_CHALLENGE_NAME}"
-IMAGE_BASE = ctf2022-repeatingoffenses
+IMAGE_BASE = ctf2022-repeatingoffense
 
 # Change to the relative path to your challenge's subfolder of the CTF-2021 git repo.
 # This is done so that your Docker builds are always tagged with the git subtree hash
 # of your latest committed changes in that specific sub folder, as opposed to the entire
 # hash of the latest commit across the entire repo.
-SRC_SUBTREE = crypto/repeatingoffenses
+SRC_SUBTREE = crypto/repeatingoffense
 
 # And leave the rest of this alone...
 #------------------------------------
